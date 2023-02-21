@@ -43,3 +43,18 @@ To manually test client-host database remote connection:
 ```
 psql --username=pg_username --host=your_host_ip --port=5432 your_database_name
 ```
+
+#### Add a cronjon
+1) Open crontab
+	```
+	crontab -e
+	```
+2) Add the following line to run it everyday at 12:01 am
+	```
+	1 0 * * 0-6 /script_path/backup.sh
+	```
+
+	or optionally, you can use the following line instead to redirect cron output to a file
+	```
+	1 0 * * 0-6 /script_path/backup.sh >> /script_path/cron_log.log
+	```
